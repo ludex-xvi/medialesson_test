@@ -145,7 +145,7 @@ export default {
       return jokes[0].value;
     }
 
-    function fetchJokeByUserInput(){
+    function fetchJokeByUserInput(): void{
       const payload = userInput.value as unknown as string;
       fetchJokeByFreeText(payload).then((res) => {
         console.log('type',  res);
