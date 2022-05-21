@@ -1,35 +1,29 @@
-
 <template>
-  <header>
-  </header>
-
-  <main>
-    HELLO
-  </main>
+  <q-layout view="lHh Lpr lFf">
+    <Header/>
+    <q-page-container>
+      <HelloWorld />
+    </q-page-container>
+  </q-layout>
 </template>
 
-<script lang="ts">
-import { fetchAllCategories, fetchRandomJoke } from "@/helpers/http";
-import { onMounted } from "vue";
+<script>
+import { ref } from 'vue'
+import Header from "@/components/Header.vue";
+import HelloWorld from './components/PageBody.vue'
+
 export default {
-  setup(){
+  name: 'LayoutDefault',
 
-    onMounted(async () => {
-      await fetchData();
-    })
-
-    function fetchData() {
-     fetchAllCategories();
-     fetchRandomJoke();
-    }
-    return {
-      fetchData,
-      fetchRandomJoke
-    }
+  components: {
+    Header,
+    HelloWorld
   },
+
+  setup () {
+    return {
+      leftDrawerOpen: ref(false)
+    }
+  }
 }
 </script>
-
-<style>
-
-</style>
